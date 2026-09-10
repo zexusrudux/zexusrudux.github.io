@@ -1,0 +1,44 @@
+// levels.js - NIVELES DE LA CHANCLA
+const LEVELS = [
+  {
+    id:1,
+    name:"NIVEL 1: LA COCINA",
+    bg: "linear-gradient(#87CEEB 0%, #ffb703 35%, #8B4513 35.1%, #111 100%)",
+    floor: "#8B4513",
+    enemy: {
+      name:"EL BRYAN",
+      shirt:"#0af", pants:"#111", skin:"#D2A679", hair:"#000", chancla:"#fff", eyes:"#ffffff",
+      hp:80, speed:0.4, damage:8, taunt:"¡No me pegues jefa!"
+    },
+    music:"¡Quita eso del fuego!"
+  },
+  {
+    id:2,
+    name:"NIVEL 2: EL MERCADO",
+    bg: "linear-gradient(#ff9a00 0%, #ffcc00 30%, #c97a20 30.1%, #2a1a0a 100%)",
+    floor: "#c97a20",
+    enemy: {
+      name:"LA VECINA CHISMOSA",
+      shirt:"#ff88ff", pants:"#ffde59", skin:"#FFDBAC", hair:"#ff2222", chancla:"#fb8500", eyes:"#00ff00",
+      hp:110, speed:0.6, damage:12, taunt:"¡Mira como educas!"
+    },
+    music:"¡En el mercado no se grita!"
+  },
+  {
+    id:3,
+    name:"NIVEL 3: JEFA FINAL - LA ABUELA",
+    bg: "linear-gradient(#220033 0%, #440066 30%, #111 30.1%, #000 100%)",
+    floor: "#220033",
+    enemy: {
+      name:"LA ABUELA CON DOBLE CHANCLA",
+      shirt:"#000", pants:"#000", skin:"#E8B899", hair:"#ffffff", chancla:"#ffde59", eyes:"#ff0000",
+      hp:180, speed:0.8, damage:18, taunt:"¡TE DIJE QUE NO!",
+      doubleChancla: true // tira 2 chanclas a la vez
+    },
+    music:"¡FINAL FATALITY DE LA CHANCLA!"
+  }
+];
+
+function getLevel(n){ return LEVELS[n-1] || LEVELS[0]; }
+function saveProgress(level){ localStorage.setItem('kof_level', level); }
+function loadProgress(){ return parseInt(localStorage.getItem('kof_level')||'1'); }
